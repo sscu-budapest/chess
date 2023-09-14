@@ -1,0 +1,27 @@
+name: Scheduled lichess
+on:
+  schedule:
+  - cron: '*/30 * * * *'
+jobs:
+  cron-run-lichess:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: python -m pip install --upgrade pip; pip install -r requirements.txt
+    - name: Setup Git
+      run: git config --global init.defaultBranch main;git config --global user.email
+        "leo@dumbartonserum.com";git config --global user.name "Leo Dumbarton";git
+        pull --tags
+    - name: Scheduled lichess
+      env:
+        ZIMMER_AUTH_HEX: ${{ secrets.ZIMMER_AUTH_HEX }}
+        ZIMMER_PHRASE: ${{ secrets.ZIMMER_PHRASE }}
+        GIT_HTTPS_TOKEN: ${{ secrets.GIT_HTTPS_TOKEN }}
+        ASWAN_AUTH_PASS: ${{ secrets.ASWAN_AUTH_PASS }}
+        ASWAN_AUTH_HEX: ${{ secrets.ASWAN_AUTH_HEX }}
+        ASWAN_REMOTE: ${{ secrets.ASWAN_REMOTE }}
+      run: dz run-aswan-project --project=lichess

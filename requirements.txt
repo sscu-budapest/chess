@@ -1,1 +1,1 @@
-datazimmer
+datazimmer[collect]
