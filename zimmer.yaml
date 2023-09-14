@@ -1,2 +1,5 @@
 name: chess
 version: v0.0
+aswan_projects:
+  lichess:
+    current_leaf: d46ca0db2fc94b66e0da
