@@ -1,5 +1,9 @@
+import sys
+
 import aswan
 import datazimmer as dz
+
+sys.setrecursionlimit(5000)
 
 main_url = dz.SourceUrl("https://lichess.org/api/tournament")
 
