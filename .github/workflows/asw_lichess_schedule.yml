@@ -1,7 +1,8 @@
 name: Scheduled lichess
 on:
   workflow_dispatch:
-  
+  schedule:
+    - cron: "*/30 * * * *"
 jobs:
   cron-run-lichess:
     runs-on: [self-hosted]
