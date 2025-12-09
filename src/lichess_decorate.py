@@ -9,7 +9,7 @@ from tqdm.notebook import tqdm
 
 load_dotenv()
 
-export_dir = Path(os.environ["EXPORT_DIR"])
+export_dir = Path(os.environ.get("EXPORT_DIR", "/tmp/export"))
 
 tournament_sample_path = export_dir / "tournament-sample.parquet"
 fixt_trepo = TableRepo(export_dir / "tournament-games", group_cols=["tournament_week"])
