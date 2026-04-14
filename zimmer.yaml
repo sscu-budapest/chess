@@ -2,4 +2,4 @@ name: chess
 version: v0.0
 aswan_projects:
   lichess:
-    current_leaf: debd249c6c20dda01396
+    current_leaf: 25e4dd056116c40a730b
