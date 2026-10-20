@@ -1,0 +1,10 @@
+[project]
+name = "chess"
+version = "0.0"
+requires-python = ">=3.12"
+dependencies = ["datazimmer[collect]>=1.0.0", "brotli"]
+
+[tool.datazimmer]
+name = "chess"
+version = "0.0"
+collectors = ["src.lichess"]

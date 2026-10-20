@@ -5,7 +5,7 @@ import datazimmer as dz
 
 sys.setrecursionlimit(5000)
 
-main_url = dz.SourceUrl("https://lichess.org/api/tournament")
+main_url = "https://lichess.org/api/tournament"
 
 
 class GetTournaments(aswan.RequestJsonHandler):
@@ -23,7 +23,6 @@ class GetTournaments(aswan.RequestJsonHandler):
 
 
 class GetTournamentGames(aswan.RequestHandler):
-    process_indefinitely = True
     max_in_parallel = 1
 
     def parse(self, blob):
@@ -32,5 +31,5 @@ class GetTournamentGames(aswan.RequestHandler):
 
 class LichessDza(dz.DzAswan):
     name: str = "lichess"
-    cron: str = "*/30 * * * *"
+    cadence: str = "1h"
     starters = {GetTournaments: [main_url]}
